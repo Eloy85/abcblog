@@ -81,3 +81,15 @@ class PasswordsChangeFormView(LoginRequiredMixin, PasswordChangeView):
     template_name = 'password/change_password.html'
     form_class = PasswordChangingForm
     success_url = reverse_lazy('index')
+
+# En tu views.py
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+def create_superuser(request):
+    if request.method == 'GET':
+        # Agrega aquí la lógica para proteger la vista si es necesario
+        User.objects.create_superuser('admin', 'eloyfmolina@gmail.com', '715885')
+        return HttpResponse('Superusuario creado con éxito.')
+    else:
+        return HttpResponse('Método no permitido.', status=405)
