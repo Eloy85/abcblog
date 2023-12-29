@@ -29,6 +29,20 @@ class SignUpForm(UserCreationForm):
             'password1',
             'password2',
         ]
+    
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
+
+    def save_superuser(self):
+        user = self.save(commit=False)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+        return user
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label=False,

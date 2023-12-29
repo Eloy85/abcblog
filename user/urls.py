@@ -1,7 +1,6 @@
 from django.urls import path
 from user import views
 from django.contrib.auth.views import LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
-from .views import create_superuser
 
 urlpatterns = [
     path('login/', views.LoginView.as_view(), name='login'),
@@ -26,5 +25,4 @@ urlpatterns = [
     path('reset/done/', PasswordResetCompleteView.as_view(
         template_name = 'password/password_reset_complete.html'
     ), name='password_reset_complete'),
-    path('create_superuser/', create_superuser, name='create_superuser'),
 ]
