@@ -80,6 +80,17 @@ Django = ">=3.2"
 django-js-asset = ">=2.0"
 
 [[package]]
+name = "django-cleanup"
+version = "8.0.0"
+description = "Deletes old files."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-cleanup-8.0.0.tar.gz", hash = "sha256:c739a05544e1e48dc848871c870dbf1595f8533d24523bc67360e43562edaf0d"},
+    {file = "django_cleanup-8.0.0-py2.py3-none-any.whl", hash = "sha256:8cd8872d67fe1501b19a843d006cdb5673cfbb74ac3d6d8f2c60e8e7723a7f5b"},
+]
+
+[[package]]
 name = "django-colorfield"
 version = "0.11.0"
 description = "color field for django models with a nice color-picker in the admin."
@@ -405,4 +416,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ba04d302184838d944f8264810b90a382f0a5243d4389a0d619ecec7f19e5230"
+content-hash = "8affba99c09c0194161c20736aadf13f8798c149cf00d68dd48bb45c864eaf2c"
