@@ -1,0 +1,36 @@
+<!-- Heredar de base -->
+{% extends 'base/base.html' %}
+<!-- Cargar archivos estáticos -->
+{% load static %}
+
+{% block css %}
+<link href="{% static 'user/css/style_user.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+<title>{% block title %} Registro {% endblock title %}</title>
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2 class="alert-session">Usted ha iniciado sesión, <a href="{% url 'index' %}">Clic aquí</a> para ir a la página principal</h2>
+{% else %}
+<hr>
+<div class="form-content">
+    <form method="POST" class="form-general">
+        <h2>Crear Cuenta</h2>
+        <!-- Agregar token -->
+        {% csrf_token %}
+        <table>
+            <!-- Obtener formulario  -->
+            {{ form.as_table }}
+        </table>
+
+        <!-- Asignar valor al input -->
+        <input type="submit" value="Registrarse" class="btn-submit">
+    </form>
+</div>
+</section>
+<!-- Incluir footer -->
+{% include 'base/footer.html' %}
+{% endif %}
+{% endblock content %}
